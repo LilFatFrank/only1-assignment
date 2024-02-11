@@ -21,10 +21,10 @@ export default function Home() {
         );
         const data = await response.json();
         setOptions(data.map((user: { name: string }) => user.name));
-        setLoading(false);
         setError(data.length ? "" : "No results found for this query!");
       } catch (error) {
         setError("Failed to fetch data");
+      } finally {
         setLoading(false);
       }
     }, 500),
@@ -43,6 +43,8 @@ export default function Home() {
         loading={loading}
         onInputChange={(val) => setSearchText(val)}
         searchText={searchText}
+        label="Enter Name"
+        subText="This is an assignment for Only1"
       />
     </main>
   );

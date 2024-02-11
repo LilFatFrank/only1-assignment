@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is an assignment by Only1 for creating a clean dropdown that can display a loading as well as an error state.
 
 ## Getting Started
 
-First, run the development server:
+The dropdown component is `dropdown-menu.tsx` in the `components/ui` folder.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- The component is reusable
+- It has a loading state and an error state
+- It has a clean and simple animation
+- It accepts the below props:
+
+```
+interface SelectDemoProps {
+ options: string[];
+ loading: boolean;
+ error: string;
+ searchText: string;
+ onInputChange: (val: string) => void;
+ label?: string;
+ subText?: string;
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Using the Dropdown Menu
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+An example for using the dropdown component is written in the `page.tsx` file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- To render values in the dropdown, a dummy api `https://jsonplaceholder.typicode.com/users` is used
+- A debounce of 0.5s is used to efficiently handle user input
+- Error handling is managed using try-catch
 
-## Learn More
+## About the project
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The project uses [Next.js](https://nextjs.org) written in [Typescript](https://www.typescriptlang.org/) with [Tailwind](https://tailwindcss.com).
+Other dependencies include [Shadcn/UI](https://ui.shadcn.com/).

@@ -9,6 +9,8 @@ interface SelectDemoProps {
   error: string;
   searchText: string;
   onInputChange: (val: string) => void;
+  label?: string;
+  subText?: string;
 }
 
 const SelectDemo: React.FC<SelectDemoProps> = ({
@@ -17,6 +19,8 @@ const SelectDemo: React.FC<SelectDemoProps> = ({
   error,
   searchText,
   onInputChange,
+  label,
+  subText,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -26,7 +30,7 @@ const SelectDemo: React.FC<SelectDemoProps> = ({
 
   return (
     <div className="relative w-full max-w-xs mx-auto" ref={dropdownRef}>
-      <label htmlFor="name-input">Enter name</label>
+      {label ? <label htmlFor="name-input">{label}</label> : null}
       <Input
         id="name-input"
         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -71,7 +75,9 @@ const SelectDemo: React.FC<SelectDemoProps> = ({
           </>
         ) : null}
       </ul>
-      <span className="text-sm text-gray-600">This is a subtext</span>
+      {subText ? (
+        <span className="text-sm text-gray-600">This is a subtext</span>
+      ) : null}
     </div>
   );
 };
