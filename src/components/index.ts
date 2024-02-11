@@ -1,1 +1,1 @@
-export * from './ui/dropdown-menu';
+export { default as SelectDemo } from './ui/dropdown-menu';
